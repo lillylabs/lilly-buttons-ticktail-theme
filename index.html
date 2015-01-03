@@ -227,6 +227,50 @@
         </article>
         {{/products}}
       {{/list_page}}
+      
+      {{#product_page}}
+        {{#product}}
+        <article class="summary clearfix">
+          
+          <div class="content-image">
+            {{#primary_image}}
+              <a href="{{url}}"><img src="{{url-500}}" alt="{{title}}"></a>
+            {{/primary_image}}
+          </div>
+          
+          <div class="content-text">
+            <header>
+              <h1><a href="{{url}}">{{title}}</a></h1>
+              <p>{{price_with_currency}}</p>
+            </header>
+
+            <div class="description">
+              <p>{{description}}</p>
+            </div>
+
+            <div class="buy">
+              {{! The #add_to_cart block is only rendered if the product is in stock }}
+              {{#add_to_cart}}
+                <div class="add_to_cart">
+                  {{#add_to_cart_button}}
+                      Legg i handlekurv
+                  {{/add_to_cart_button}}
+                </div>
+              {{/add_to_cart}}
+
+              {{! This block will be rendered instead of the #add_to_cart block when the product is out of stock }}
+              {{#out_of_stock}}
+                <div class="out_of_stock">
+                  Ingen flere buttons igjen av denne typen dessverre.
+                </div>
+              {{/out_of_stock}}
+            </div>
+          </div>
+          
+        </article>
+        {{/product}}
+      {{/product_page}}
+      
     </main>
 
     <footer role="contentinfo">

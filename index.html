@@ -22,6 +22,10 @@
     </style>
     <style type="text/css">
       
+      #colophon {
+        margin-top: 0;
+      }
+      
       a img:hover {
         opacity: 0.8;
       }
@@ -32,28 +36,30 @@
       }
       
       article {
-        margin-top: 45px;
+        margin-top: 50px;
       }
       
       article:first-child {
-        margin-top: 60px;
+        margin-top: 58px;
+      }
+      
+      article:last-child {
+        margin-bottom: 30px;
       }
       
       article header,
       article:first-child header {
-        margin: 0;
+        margin-top: 0;
       }
       
       body>main article>div {
         max-width: 100%;
+        margin: 0;
       }
       
       article .content-image {
         margin: 0;
         float: left;
-        max-width: 50%;
-        margin-left: 4%;
-        margin-right: 4%;
       }
       
       article .content-image img {
@@ -61,38 +67,44 @@
         width: 100%;
       }
       
-      article .content-text {
-        margin-right: 4%;
-      }
-      
       @media (min-width: 1251px) {
         article .content-image {
           margin-left: 40px;
-          margin-right: 40px;
         }
         
         article .content-text {
           margin-right: 40px;
         }
         
-        article .content-text .description {
+        article .content-text {
           padding-left: 580px;
+        }
+        
+        article .content-text .description {
+          max-width: 320px;
         }
       }
       
       @media (max-width: 1250px) {
+        
+        article .content-image {
+          max-width: 50%;
+          margin-left: 4%;
+        }
+        
         article .content-text {
-          width: 38%;
           float: left;
+          width: 38%;
+          margin: 0 4%;
         }
       }
       
       @media (max-width: 800px) {
         article .content-image,
         article .content-text {
+          float: none;
           max-width: 100%;
           width: 92%;
-          float: none;
           margin: 0 4%;
         }
       }

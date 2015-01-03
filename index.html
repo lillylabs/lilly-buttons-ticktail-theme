@@ -23,6 +23,10 @@
     </style>
     <style type="text/css">
       
+      a img:hover {
+        opacity: 0.8;
+      }
+      
       body>main {
         max-width: 100%;
         margin: 0;
@@ -79,10 +83,6 @@
         }
       }
       
-      article img:hover {
-        opacity: 0.8;
-      }
-      
       article>div {
         margin: 20px 0;
       }
@@ -99,12 +99,14 @@
         max-width: 900px;
       }
       
-      .tictail_social_buttons {
-        max-width: 100%;
+      .related-heading {
+        margin: 0 4%;
       }
       
-      .tictail_social_buttons iframe {
-        margin: 0;
+      .related-product {
+        float: left;
+        margin-left: 4%;
+        width: 28%;
       }
       
       nav>ul li a.internal:after {
@@ -269,6 +271,30 @@
           
         </article>
         {{/product}}
+      
+        {{! Render a list of related products if there are any }}
+        {{#related_products?}}
+        <aside class="clearfix">
+            <hr>
+
+            <h2 class="related-heading">Hva med en annen button?</h2>
+
+            <ul>
+              {{#related_products}}
+              <li class="related-product">
+                <a href="{{url}}">
+                  <div class="content-image">
+                    {{#primary_image}}
+                        <img src="{{url-300}}" alt="{{title}}">
+                    {{/primary_image}}
+                  </div>
+                </a>
+              </li>
+              {{/related_products}}
+            </ul>
+        </aside>
+        {{/related_products?}}
+      
       {{/product_page}}
       
     </main>

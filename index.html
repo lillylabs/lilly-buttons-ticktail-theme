@@ -13,6 +13,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,300,700|Roboto+Condensed:400,300|Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="{{assets_url}}/shared/css/base.css" rel="stylesheet" type="text/css">
     
     <style type="text/css">
  * Roots 6.5.2
@@ -33,12 +34,42 @@
         margin: 0;
       }
       
-      article .featured-image {
-        margin-right: 1.5em;
+      article img {
+        margin: 0;
         float: left;
       }
       
-      article .featured-image img {
+      article img:hover {
+        opacity: 0.8;
+      }
+      
+      article>header,
+      article>div {
+        padding-left: 330px;
+        max-width: 100%;
+      }
+      
+      article>div {
+        margin: 20px 0;
+      }
+      
+      article .info {
+        margin: 0;
+      }
+      
+      article.summary div p {
+        display: block;
+      }
+      
+      article header p {
+        margin: 0;
+      }
+      
+      .tictail_social_buttons {
+        max-width: 100%;
+      }
+      
+      .tictail_social_buttons iframe {
         margin: 0;
       }
       
@@ -70,23 +101,38 @@
       {{#list_page}}
         {{#products}}
         <article class="summary clearfix">
-          <div class="featured-image">
-            {{#primary_image}}
-              <img src="{{url-300}}" alt="{{title}}">
-            {{/primary_image}}
-          </div>
+          
+          {{#primary_image}}
+            <a href="{{url}}"><img src="{{url-300}}" alt="{{title}}"></a>
+          {{/primary_image}}
+          
           <header>
             <h1><a href="{{url}}">{{title}}</a></h1>
+            <p>{{price_with_currency}}</p>
           </header>
-          
+
           <div class="info">
-            {{#in_stock}}
-            <h4 class="price">{{price_with_currency}}</h4>
-            {{/in_stock}}
+            <p>{{description}}</p>
+          </div>
+
+          <div class="buy">
+            {{! The #add_to_cart block is only rendered if the product is in stock }}
+            {{#add_to_cart}}
+              <div class="add_to_cart">
+                {{#add_to_cart_button}}
+                    Legg i handlekurv
+                {{/add_to_cart_button}}
+              </div>
+            {{/add_to_cart}}
+
+            {{! This block will be rendered instead of the #add_to_cart block when the product is out of stock }}
             {{#out_of_stock}}
-            <h4 class="price out_of_stock_price">Tomt</h4>
+              <div class="out_of_stock">
+                Ingen flere buttons igjen av denne typen dessverre.
+              </div>
             {{/out_of_stock}}
           </div>
+          
         </article>
         {{/products}}
       {{/list_page}}

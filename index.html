@@ -141,7 +141,7 @@
         width: 28%;
       }
       
-      nav>ul li a.internal:after {
+      nav>ul li.internal a:after {
         content: "";
       }
       
@@ -202,8 +202,8 @@
 
       <nav>
         <ul>
-          <li class="{{#list_page}}{{#no_current_navigation}}active{{/no_current_navigation}}{{/list_page}}">
-            <a href="{{store_url}}" class="internal">Buttons</a>
+          <li class="internal {{#list_page}}{{#no_current_navigation}}active{{/no_current_navigation}}{{/list_page}}">
+            <a href="{{store_url}}">Buttons</a>
           </li>
         </ul>
       </nav>
@@ -218,12 +218,12 @@
       
       <nav>
         <ul>
-          <li>
+          <li class="internal">
           {{#return_policy}}
             {{#lang}}Return Policy{{/lang}}
           {{/return_policy}}
           </li>
-          <li>
+          <li class="internal">
           {{#terms}}
             {{#lang}}Terms &amp; Conditions{{/lang}}
           {{/terms}}
@@ -349,5 +349,16 @@
     <footer role="contentinfo">
         <p></p>
     </footer>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-35719933-10', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
   </body>
 </html>
